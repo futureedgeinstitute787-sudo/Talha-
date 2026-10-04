@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Hadia</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a0033, #4a0072, #7b2cbf);
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Password Screen */
+#lock {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #1a0033, #4a0072);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: 0.6s ease;
+}
+
+#lock.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.lock-box {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,182,255,0.3);
+    border-radius: 30px;
+    padding: 50px 40px;
+    text-align: center;
+    width: 90%;
+    max-width: 380px;
+    backdrop-filter: blur(12px);
+}
+
+.lock-box h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: #ff9eee;
+    margin-bottom: 10px;
+}
+
+.lock-box p {
+    font-size: 0.95rem;
+    color: #e0c3fc;
+    margin-bottom: 25px;
+}
+
+#pass {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 50px;
+    background: rgba(0,0,0,0.3);
+    color: #ff9eee;
+    font-size: 1.2rem;
+    text-align: center;
+    letter-spacing: 3px;
+    outline: none;
+    border: 1px solid rgba(255,158,238,0.4);
+}
+
+#btn {
+    margin-top: 20px;
+    padding: 13px 40px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #ff6bcb, #ff9eee);
+    color: #1a0033;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.err {
+    color: #ff6b6b;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    display: none;
+}
+
+/* Main Content */
+#content {
+    display: none;
+    padding: 40px 20px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#content.show {
+    display: block;
+    animation: up 0.9s ease;
+}
+
+@keyframes up {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: none; }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3.5rem, 12vw, 5.5rem);
+    color: #ff9eee;
+    line-height: 1.1;
+}
+
+.header .name {
+    font-size: clamp(2rem, 7vw, 3rem);
+    font-weight: 600;
+    color: #fff;
+    margin: 8px 0 15px;
+    letter-spacing: 4px;
+}
+
+.header p {
+    color: #e0c3fc;
+    font-size: 1.1rem;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Image Grid */
+.pics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 40px 0;
+}
+
+.pics img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 18px;
+    border: 2px solid rgba(255,158,238,0.3);
+    transition: 0.3s;
+}
+
+.pics img:hover {
+    transform: scale(1.03);
+    border-color: #ff9eee;
+}
+
+/* Messages */
+.card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,158,238,0.25);
+    border-radius: 22px;
+    padding: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #f0e6ff;
+}
+
+.card .pink {
+    color: #ff9eee;
+    font-weight: 600;
+}
+
+.wish {
+    background: linear-gradient(135deg, rgba(255,107,203,0.15), rgba(155,89,182,0.15));
+    border: 1px solid rgba(255,158,238,0.3);
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 14px;
+    font-size: 1.1rem;
+    color: #f8e8ff;
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.footer h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.4rem;
+    color: #ff9eee;
+    margin-bottom: 8px;
+}
+
+.footer p {
+    color: #e0c3fc;
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    .pics {
+        grid-template-columns: 1fr;
+    }
+    .pics img {
+        height: 240px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Password -->
+<div id="lock">
+    <div class="lock-box">
+        <h2>For You</h2>
+        <p>Enter the secret password<br>to open Hadia's birthday wish</p>
+        <input type="password" id="pass" placeholder="Password">
+        <br>
+        <button id="btn">Unlock</button>
+        <p class="err" id="err">Incorrect password</p>
+    </div>
+</div>
+
+<!-- Content -->
+<div id="content">
+    <div class="header">
+        <h1>Happy Birthday</h1>
+        <div class="name">Hadia</div>
+        <p>Wishing the most beautiful soul a day as special as she is</p>
+    </div>
+
+    <!-- Pictures -->
+    <div class="pics">
+        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=700&q=80" alt="Celebration">
+        <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=700&q=80" alt="Cake">
+        <img src="https://images.unsplash.com/photo-1530101047465-8bb0335f3a5a?w=700&q=80" alt="Balloons">
+        <img src="https://images.unsplash.com/photo-1527481138388-31827ee1c6ad?w=700&q=80" alt="Gifts">
+        <img src="https://images.unsplash.com/photo-1558636508-e0db3814bd1d?w=700&q=80" alt="Decor">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=700&q=80" alt="Party">
+        <img src="https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=700&q=80" alt="Candles">
+        <img src="https://images.unsplash.com/photo-1530103862676-de20c0b35f6d?w=700&q=80" alt="Wish">
+    </div>
+
+    <!-- Message -->
+    <div class="card">
+        <p>Dear <span class="pink">Hadia</span>,</p>
+        <p>Today is all about you. May your heart be light, your smile be bright, and your year ahead be filled with everything you deserve.</p>
+    </div>
+
+    <!-- Wishes -->
+    <div class="wish">May your days be filled with laughter and your nights with peaceful dreams.</div>
+    <div class="wish">You bring so much beauty into this world just by being yourself.</div>
+    <div class="wish">Keep glowing, keep growing, and never stop being the amazing person you are.</div>
+    <div class="wish">Wishing you health, happiness, and endless reasons to smile.</div>
+
+    <div class="card">
+        <p style="font-size:1.3rem; color:#ff9eee;">You are truly special.</p>
+        <p>Happy Birthday once again!</p>
+    </div>
+
+    <div class="footer">
+        <h3>With Love</h3>
+        <p>Always here for you</p>
+    </div>
+</div>
+
+<script>
+const pass = document.getElementById('pass');
+const btn = document.getElementById('btn');
+const err = document.getElementById('err');
+const lock = document.getElementById('lock');
+const content = document.getElementById('content');
+
+function check() {
+    if (pass.value.trim().toLowerCase() === "talha") {
+        lock.classList.add('hide');
+        content.classList.add('show');
+        setTimeout(() => lock.style.display = 'none', 600);
+    } else {
+        err.style.display = 'block';
+        pass.value = '';
+        setTimeout(() => err.style.display = 'none', 2000);
+    }
+}
+
+btn.onclick = check;
+pass.onkeypress = e => { if (e.key === 'Enter') check(); };
+</script>
+</body>
+</html>
